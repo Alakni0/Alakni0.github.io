@@ -13,7 +13,7 @@
 <body>
     <h1>Formularz adopcji delfina</h1>
     
-  <form>
+  <form action="gratulacje.html">
   <label for="imie">Imie:</label><br>
   <input type="text" id="imie" name="imie" placeholder="Wpisz odpowiedź"><br>
   <label for="nazwisko">Nazwisko:</label><br>
@@ -25,18 +25,18 @@
   <input type="text" id="ulica" name="ulica" placeholder="Wpisz odpowiedź"><br><br>
   <label for="mail">Email:</label><br>
   <input type="text" id="mail" name="mail" placeholder="Wpisz odpowiedź"><br><br>
-   </form> 
+   
 
 
 <p>Czy posiadasz prawojasny:</p>
-<form>
+
   <input type="checkbox" id="prawojazdy" name="prawojazdy" value="tak">
   <label for="prawojazdy">Tak</label><br>
   <input type="checkbox" id="prawojazdy" name="prawojazdy" value="nie">
   <label for="prawojazdy">Nie</label><br>
-</form> 
 
- <form>
+
+ 
         <p>Proszę określić swoją płeć:</p>
 
          <input type="checkbox" id="plec" name="plec" value="kobieta">
@@ -48,35 +48,23 @@
         <input type="text" id="plec" name="plec" placeholder="Wpisz odpowiedź"><br><br> 
 
          
-</form>
+
 
     
-  <form>
+  
   <label for="telefon">Telefon:</label><br>
   <input type="text" id="telefon" name="telefon" placeholder="Wpisz odpowiedź" required><br><br>
+
+ <input type="submit" value="Submit">
   </form> 
 
-	<script>
-        document.getElementById("adopcjaForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const telefon = document.getElementById("telefon").value;
-            const regex = /^[0-9]{9}$/;
-
-            if (!regex.test(telefon)) {
-                alert("Numer telefonu musi zawierać dokładnie 9 cyfr!");
-                return;
-            }
-
-            window.location.href = "gratuluje.html";
-        });
-    </script>
-
+	
 	
     
     <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
 </html>
+
 
 
 
