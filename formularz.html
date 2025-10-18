@@ -9,16 +9,16 @@
     
   <form>
   <label for="imie">Imie:</label><br>
-  <input type="text" id="imie" name="imie"><br>
+  <input type="text" id="imie" name="imie" placeholder="Wpisz odpowiedź"><br>
   <label for="nazwisko">Nazwisko:</label><br>
-  <input type="text" id="nazwisko" name="nazwisko"><br><br>
+  <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz odpowiedź"><br><br>
   
   <label for="miasto">Miasto:</label><br>
-  <input type="text" id="miasto" name="miasto"><br><br>
+  <input type="text" id="miasto" name="miasto" placeholder="Wpisz odpowiedź"><br><br>
   <label for="ulica">Ulica:</label><br>
-  <input type="text" id="ulica" name="ulica"><br><br>
+  <input type="text" id="ulica" name="ulica" placeholder="Wpisz odpowiedź"><br><br>
   <label for="mail">Email:</label><br>
-  <input type="text" id="mail" name="mail"><br><br>
+  <input type="text" id="mail" name="mail" placeholder="Wpisz odpowiedź"><br><br>
    </form> 
 
 
@@ -33,14 +33,18 @@
  <form>
         <p>Proszę określić swoją płeć:</p>
 
-        <label><input type="plec" name="plec" value="kobieta"> Kobieta</label><br>
+         <input type="checkbox" id="plec" name="plec" value="kobieta">
+         <label for="plec">Kobieta</label><br>
+         <input type="checkbox" id="plec" name="plec" value="mezczyzna">
+         <label for="plec">Mężczyzna</label><br>
 
-        <label><input type="plec" name="plec" value="mezczyzna">Mężczyzna</label><br>
-
-        <label><input type="plec" name="plec" value="inna">Inna (proszę określić): 
+        <label for="plec">Wpisz odpowiedź:</label><br>
+        <input type="text" id="plec" name="plec" placeholder="Wpisz odpowiedź"><br><br> 
+     
         <input type="text" name="inna_opis" placeholder="Wpisz odpowiedź"></label><br>
 
-        <label><input type="plec" name="plec" value="brak_odpowiedzi">Wolę nie odpowiadać </label><br><br>
+         <input type="checkbox" id="plec" name="plec" value="brak_odpowiedzi">
+         <label for="plec">Wolę nie odpowiadać</label><br>
 </form>
 
     
@@ -52,6 +56,7 @@
     <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
 </html>
+
 
 
 
