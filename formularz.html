@@ -55,28 +55,11 @@
 	  
 </form> 
 
-<script>
-document.getElementById('formularz').addEventListener('submit', function(e) {
-    const wiek = document.querySelector('input[name="wiek"]:checked');
-    if (!wiek || wiek.value !== 'tak') {
-        alert('Musisz mieć 18 lat, aby wysłać formularz!');
-        e.preventDefault();
-        return;
-    }
-
-    const telefon = document.getElementById('telefon').value;
-    if (!/^\d{9}$/.test(telefon)) {
-        alert('Telefon musi mieć dokładnie 9 cyfr!');
-        e.preventDefault();
-        return;
-    }
-});
-</script>
-
 
     <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
 </html>
+
 
 
 
