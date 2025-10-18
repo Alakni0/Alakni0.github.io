@@ -46,15 +46,35 @@
     <input type="text" id="plec" name="plec" placeholder="Wpisz odpowiedź"><br><br> 
 
   	<label for="telefon">Telefon:</label><br>
-  	<input type="text" id="telefon" name="telefon" placeholder="Wpisz odpowiedź" required><br><br>
+  	<input type="text" id="telefon" name="telefon" placeholder="Wpisz odpowiedź" required pattern="\d{9}" title="Telefon musi mieć dokładnie 9 cyfr"><br><br>
 
  	<input type="submit" value="Submit">
 	  
 </form> 
 
+<script>
+document.getElementById('formularz').addEventListener('submit', function(e) {
+    const wiek = document.querySelector('input[name="wiek"]:checked');
+    if (!wiek || wiek.value !== 'tak') {
+        alert('Musisz mieć 18 lat, aby wysłać formularz!');
+        e.preventDefault();
+        return;
+    }
+
+    const telefon = document.getElementById('telefon').value;
+    if (!/^\d{9}$/.test(telefon)) {
+        alert('Telefon musi mieć dokładnie 9 cyfr!');
+        e.preventDefault();
+        return;
+    }
+});
+</script>
+
+
     <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
 </html>
+
 
 
 
