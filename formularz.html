@@ -54,12 +54,31 @@
     
   <form>
   <label for="telefon">Telefon:</label><br>
-  <input type="text" id="telefon" name="telefon" placeholder="Wpisz odpowiedź"><br><br>
+  <input type="text" id="telefon" name="telefon" placeholder="Wpisz odpowiedź" required><br><br>
   </form> 
+
+	<script>
+        document.getElementById("adopcjaForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const telefon = document.getElementById("telefon").value;
+            const regex = /^[0-9]{9}$/;
+
+            if (!regex.test(telefon)) {
+                alert("Numer telefonu musi zawierać dokładnie 9 cyfr!");
+                return;
+            }
+
+            window.location.href = "gratuluje.html";
+        });
+    </script>
+
+	
     
     <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
 </html>
+
 
 
 
