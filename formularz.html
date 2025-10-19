@@ -28,6 +28,51 @@
   <input type="radio" id="wiekNie" name="wiek" value="nie">
   <label for="wiekNie">Nie</label><br>
   <p>   </p>
+
+<fieldset>
+      <legend>Data urodzenia</legend>
+
+      <label for="dzien">Dzień:</label><br>
+      <input
+        type="number"
+        id="dzien"
+        name="dzien"
+        min="1"
+        max="31"
+        step="1"
+        required
+        aria-describedby="dzien-help"
+        placeholder="np. 15"><br>
+      <small id="dzien-help">Wartość od 1 do 31.</small><br><br>
+
+      <label for="miesiac">Miesiąc:</label><br>
+      <input
+        type="number"
+        id="miesiac"
+        name="miesiac"
+        min="1"
+        max="12"
+        step="1"
+        required
+        aria-describedby="miesiac-help"
+        placeholder="np. 7"><br>
+      <small id="miesiac-help">Wartość od 1 do 12.</small><br><br>
+
+      <label for="rok">Rok (dokładnie 3 cyfry):</label><br>
+      <input
+        type="text"
+        id="rok"
+        name="rok"
+        inputmode="numeric"
+        pattern="^\d{3}$"
+        maxlength="3"
+        required
+        title="Wpisz dokładnie 3 cyfry (np. 985)">
+      <br>
+      <small>Muszą to być 3 cyfry — walidacja przy wysyłaniu formularza.</small>
+    </fieldset>
+
+	
 	  
   <label for="miasto">Miasto:</label><br>
   <input type="text" id="miasto" name="miasto" placeholder="Wpisz odpowiedź"required><br><br>
@@ -59,6 +104,7 @@
     <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
 </html>
+
 
 
 
