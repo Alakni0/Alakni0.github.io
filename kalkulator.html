@@ -11,7 +11,67 @@
             font-family: Arial, sans-serif;
             color: #033e63;
             text-align: center;
+
         }
+
+        .kalkulator
+        {
+            width: 300px;
+            margin: 50px auto;
+            background: #ffffff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+
+        }
+
+        .wyswietlacz
+        {
+            background: #333333;
+            color: #000000;
+            padding: 15px;
+            font-size: 2em;
+            text-align: right;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .wyswietlacz input
+        {
+            width: 100%;
+            border: none;
+            background: none;
+            color: inherit;
+            font-size: inherit;
+            text-align: right;
+            outline: none;
+        }
+
+        .przyciski
+        {
+            /*display: grid;*/
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+
+        }
+
+        .przyciski button
+        {
+            background: #f4f4f4;
+            border: none;
+            font-size: 1.5em;
+            padding: 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .przyciski button:hover {
+            background: #e0e0e0;
+        }
+
+        .puste {
+            visibility: hidden; /* ukrywa przycisk, ale zachowuje jego miejsce */
+        }
+
         a {
             display: block;
             text-align: center;
@@ -28,6 +88,47 @@
 </head>
 
 <body>
+<h1>Kalkulator</h1>
+
+<div class = "kalkulator">
+    <div class = "wyswietlacz">
+        <input type = "text" id ="wyswietlaczka" readonly>
+    </div>
+    <div class="przyciski">
+        <button id = "C" onclick = "kalkulator()">C</button>
+        <button class="puste"></button>
+        <button id = "=" onclick = "kalkulator()">=</button>
+        <button id = "÷" onclick = "kalkulator()">÷</button>
+        <br>
+        <button id ="7" onclick = "kalkulator()">7</button>
+        <button id ="8" onclick = "kalkulator()">8</button>
+        <button id ="9" onclick = "kalkulator()">9</button>
+        <button id ="*" onclick = "kalkulator()">*</button>
+        <br>
+        <button id = "4" onclick = "kalkulator()">4</button>
+        <button id = "5" onclick = "kalkulator()">5</button>
+        <button id = "6" onclick = "kalkulator()">6</button>
+        <button id = "+" onclick = "kalkulator()">+</button>
+        <br>
+        <button id = "1" onclick = "kalkulator()">1</button>
+        <button id = "2" onclick = "kalkulator()">2</button>
+        <button id = "3" onclick = "kalkulator()">3</button>
+        <button id = "-" onclick = "kalkulator()">-</button>
+        <br>
+        <button class = "puste"></button>
+        <button id = "0" onclick = "kalkulator()">0</button>
+        <button class = "puste"></button>
+        <button id = "." onclick = "kalkulator()">.</button>
+    </div>
+
+</div>
+
+<script>
+    function kalkulator()
+    {
+
+    }
+</script>
 
 <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
