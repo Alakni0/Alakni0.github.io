@@ -151,16 +151,26 @@
         }
         else if (wartosc === "=")
         {
-            try {
+            try
+            {
                 ekran.value = eval(ekran.value);
-            } catch {
+                if(ekran.value.length > limit)
+                {
+                    ekran.value = "Error"
+                }
+            }
+            catch
+            {
                 ekran.value = "Error";
             }
         }
         else
         {
             if (ekran.value.length >= limit)
+            {
                 return;
+            }
+
             if (operatory.includes(ostatni) && operatory.includes(wartosc))
             {
                 ekran.value = ekran.value.slice(0, -1) + wartosc;
