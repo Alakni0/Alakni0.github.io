@@ -28,7 +28,7 @@
         .wyswietlacz
         {
             background: #333333;
-            color: #000000;
+            color: #ffffff;
             padding: 15px;
             font-size: 2em;
             text-align: right;
@@ -132,9 +132,43 @@
 </div>
 
 <script>
-    function kalkulator()
-    {
 
+    const ekran = document.getElementById("wyswietlaczka");
+
+    function kalkulator( wartosc ) {
+
+        const ostatni = ekran.value.slice(-1);
+        const operatory = ['+', '-', '*', '/', '.'];
+        const limit = 20;
+
+        if (wartosc == "C")
+        {
+            ekran.value = "";
+        }
+        else if (wartosc === "CE")
+        {
+            ekran.value = ekran.value.slice(0, -1);
+        }
+        else if (wartosc === "=")
+        {
+            try {
+                ekran.value = eval(ekran.value);
+            } catch {
+                ekran.value = "Error";
+            }
+        }
+        else
+        {
+            if (ekran.value.length >= limit)
+                return;
+            if (operatory.includes(ostatni) && operatory.includes(wartosc))
+            {
+                ekran.value = ekran.value.slice(0, -1) + wartosc;
+                return;
+            }
+
+            ekran.value += wartosc;
+        }
     }
 </script>
 
