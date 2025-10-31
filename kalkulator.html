@@ -48,9 +48,10 @@
 
         .przyciski
         {
-            /*display: grid;*/
+            display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
+            gap: 2px;
+            background: #d7e9f5;
 
         }
 
@@ -62,6 +63,8 @@
             padding: 20px;
             cursor: pointer;
             transition: background 0.2s;
+            width: 100%;
+            height: 100%;
         }
 
         .przyciski button:hover {
@@ -99,22 +102,22 @@
         <button class="puste"></button>
         <button id = "=" onclick = "kalkulator()">=</button>
         <button id = "÷" onclick = "kalkulator()">÷</button>
-        <br>
+
         <button id ="7" onclick = "kalkulator()">7</button>
         <button id ="8" onclick = "kalkulator()">8</button>
         <button id ="9" onclick = "kalkulator()">9</button>
         <button id ="*" onclick = "kalkulator()">*</button>
-        <br>
+
         <button id = "4" onclick = "kalkulator()">4</button>
         <button id = "5" onclick = "kalkulator()">5</button>
         <button id = "6" onclick = "kalkulator()">6</button>
         <button id = "+" onclick = "kalkulator()">+</button>
-        <br>
+
         <button id = "1" onclick = "kalkulator()">1</button>
         <button id = "2" onclick = "kalkulator()">2</button>
         <button id = "3" onclick = "kalkulator()">3</button>
         <button id = "-" onclick = "kalkulator()">-</button>
-        <br>
+
         <button class = "puste"></button>
         <button id = "0" onclick = "kalkulator()">0</button>
         <button class = "puste"></button>
