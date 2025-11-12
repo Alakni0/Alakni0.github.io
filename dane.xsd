@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="faktura">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nabywca">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="imie" type="xs:string"/>
+                            <xs:element name="nazwisko" type="xs:string"/>
+                            <xs:element name="adres" type="xs:string"/>
+                            <xs:element name="nip" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="usluga" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="nazwa" type="xs:string"/>
+                            <xs:element name="ilosc" type="xs:decimal"/>
+                            <xs:element name="cena" type="xs:decimal"/>
+                            <xs:element name="wartosc" type="xs:decimal"/>
+                            <xs:element name="kwota" type="xs:decimal"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

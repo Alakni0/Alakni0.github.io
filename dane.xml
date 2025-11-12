@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faktura xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="dane.xsd">
+    <nabywca>
+        <imie>Zdziś</imie>
+        <nazwisko>Zdzisiowaty</nazwisko>
+        <adres>ul. Miła 10, 21-500 Biala Podlaska</adres>
+        <nip>123-456-78-90</nip>
+    </nabywca>
+    <usluga>
+        <nazwa>Delfin gumowy</nazwa>
+        <ilosc>20</ilosc>
+        <cena>50</cena>
+        <wartosc>1000</wartosc>
+        <kwota>230</kwota>
+    </usluga>
+    <usluga>
+        <nazwa>Delfin kałczukowy</nazwa>
+        <ilosc>20</ilosc>
+        <cena>60</cena>
+        <wartosc>1200</wartosc>
+        <kwota>276</kwota>
+    </usluga>
+    <usluga>
+        <nazwa>Delfin z mydła</nazwa>
+        <ilosc>20</ilosc>
+        <cena>300</cena>
+        <wartosc>6000</wartosc>
+        <kwota>1380</kwota>
+    </usluga>
+</faktura>

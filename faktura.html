@@ -1,6 +1,8 @@
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
+    <title>Faktura</title>
     <style>
         body {
             background-color: #e1f1fa;
@@ -8,13 +10,58 @@
             color: #033e63;
             text-align: center;
         }
+
+        .tlo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-image: url('faktura.jpg');
+            background-size: 1000px;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            opacity: 0.60;
+            z-index: -1;
+        }
+
+        .pola {
+            position: absolute;
+            color: #033e63;
+            font-size: 20px;
+        }
+
+        #imie { top: 150px; left: 250px; }
+        #nazwisko { top: 150px; left: 320px; }
+        #adres { top: 184px; left: 150px; }
+        #nip { top: 184px; left: 750px; }
+
+        #nazwa1 { top: 270px; left: 100px; }
+        #ilosc1 { top: 270px; left: 460px; }
+        #cena1  { top: 270px; left: 525px; }
+        #wartosc1 { top: 270px; left: 610px; }
+        #kwota1 { top: 270px; left: 770px; }
+
+        #nazwa2 { top: 300px; left: 100px; }
+        #ilosc2 { top: 300px; left: 460px; }
+        #cena2  { top: 300px; left: 525px; }
+        #wartosc2 { top: 300px; left: 610px; }
+        #kwota2 { top: 300px; left: 770px; }
+
+        #nazwa3 { top: 330px; left: 100px; }
+        #ilosc3 { top: 330px; left: 460px; }
+        #cena3  { top: 330px; left: 525px; }
+        #wartosc3 { top: 330px; left: 610px; }
+        #kwota3 { top: 330px; left: 770px; }
+
+        #suma { top: 580px; left: 625px; }
+
         a {
             display: block;
             text-align: center;
             color: #005f8a;
             text-decoration: none;
             font-weight: bold;
-            margin: 20px;
+            margin: 5px;
         }
 
         a:hover {
@@ -23,7 +70,89 @@
     </style>
 </head>
 <body>
+    <div class="tlo"></div>
 
-<p><a href="index.html">← Powrót do strony głównej</a></p>
+    <div id="imie" class="pola"></div>
+    <div id="nazwisko" class="pola"></div>
+    <div id="adres" class="pola"></div>
+    <div id="nip" class="pola"></div>
+
+    <div id="nazwa1" class="pola"></div>
+    <div id="ilosc1" class="pola"></div>
+    <div id="cena1" class="pola"></div>
+    <div id="wartosc1" class="pola"></div>
+    <div id ="kwota1" class="pola"></div>
+
+    <div id="nazwa2" class="pola"></div>
+    <div id="ilosc2" class="pola"></div>
+    <div id="cena2" class="pola"></div>
+    <div id="wartosc2" class="pola"></div>
+    <div id ="kwota2" class="pola"></div>
+
+    <div id="nazwa3" class="pola"></div>
+    <div id="ilosc3" class="pola"></div>
+    <div id="cena3" class="pola"></div>
+    <div id="wartosc3" class="pola"></div>
+    <div id ="kwota3" class="pola"></div>
+
+    <div id="suma" class="pola"></div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () =>
+        {
+            fetch("dane.xml")
+                .then(response =>
+                {
+                    if (!response.ok) {
+                        throw new Error('Nie znaleziono pliku');
+                    }
+                    return response.text();
+                })
+                .then(xmlText =>
+                {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(xmlText, "application/xml");
+
+                    const nabywca = doc.getElementsByTagName("nabywca")[0];
+                    document.getElementById('imie').textContent = nabywca.getElementsByTagName("imie")[0].textContent;
+                    document.getElementById('nazwisko').textContent = nabywca.getElementsByTagName("nazwisko")[0].textContent;
+                    document.getElementById('adres').textContent = nabywca.getElementsByTagName("adres")[0].textContent;
+                    document.getElementById('nip').textContent = nabywca.getElementsByTagName("nip")[0].textContent;
+
+                    const uslugi = doc.getElementsByTagName("usluga");
+                    let sumaWartosci = 0;
+
+                    for (let i = 0; i < uslugi.length && i < 3; i++)
+                    {
+                        const numer = i + 1;
+                        const usluga = uslugi[i];
+
+                        const nazwa = usluga.getElementsByTagName("nazwa")[0].textContent;
+                        const ilosc = usluga.getElementsByTagName("ilosc")[0].textContent;
+                        const cena = usluga.getElementsByTagName("cena")[0].textContent;
+                        const wartosc = usluga.getElementsByTagName("wartosc")[0].textContent;
+                        const kwota = usluga.getElementsByTagName("kwota")[0].textContent;
+
+                        document.getElementById(`nazwa${numer}`).textContent = nazwa;
+                        document.getElementById(`ilosc${numer}`).textContent = ilosc;
+                        document.getElementById(`cena${numer}`).textContent = cena;
+                        document.getElementById(`wartosc${numer}`).textContent = wartosc;
+                        document.getElementById(`kwota${numer}`).textContent = kwota;
+
+                        sumaWartosci += parseFloat(wartosc);
+                    }
+
+                    document.getElementById('suma').textContent = sumaWartosci.toFixed(2);
+
+                })
+                .catch(error =>
+                {
+                    console.error("Wystąpił błąd podczas wczytywania faktury:", error);
+                });
+        });
+    </script>
+
+    <p><a href="index.html">← Powrót do strony głównej</a></p>
 </body>
 </html>
