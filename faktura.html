@@ -99,58 +99,48 @@
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', () =>
-        {
-            fetch("dane.xml")
-                .then(response =>
+        fetch("dane.xml")
+            //zamieniam dane z pliku xml na tekst
+            .then(response =>
+            {
+                return response.text();
+            })
+            .then(xmlText =>
+            {
+                //zamieniam tekst html na strukture, ktora JS rozumie - HTML DOM
+                const doc = new DOMParser().parseFromString(xmlText, "application/xml");
+
+                const nabywca = doc.getElementsByTagName("nabywca")[0];
+                document.getElementById('imie').textContent = nabywca.getElementsByTagName("imie")[0].textContent;
+                document.getElementById('nazwisko').textContent = nabywca.getElementsByTagName("nazwisko")[0].textContent;
+                document.getElementById('adres').textContent = nabywca.getElementsByTagName("adres")[0].textContent;
+                document.getElementById('nip').textContent = nabywca.getElementsByTagName("nip")[0].textContent;
+
+                const uslugi = doc.getElementsByTagName("usluga");
+                let sumaWartosci = 0;
+
+                for (let i = 0; i < uslugi.length && i < 3; i++)
                 {
-                    if (!response.ok) {
-                        throw new Error('Nie znaleziono pliku');
-                    }
-                    return response.text();
-                })
-                .then(xmlText =>
-                {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(xmlText, "application/xml");
+                    const numer = i + 1;
+                    const usluga = uslugi[i];
 
-                    const nabywca = doc.getElementsByTagName("nabywca")[0];
-                    document.getElementById('imie').textContent = nabywca.getElementsByTagName("imie")[0].textContent;
-                    document.getElementById('nazwisko').textContent = nabywca.getElementsByTagName("nazwisko")[0].textContent;
-                    document.getElementById('adres').textContent = nabywca.getElementsByTagName("adres")[0].textContent;
-                    document.getElementById('nip').textContent = nabywca.getElementsByTagName("nip")[0].textContent;
 
-                    const uslugi = doc.getElementsByTagName("usluga");
-                    let sumaWartosci = 0;
+                    document.getElementById(`nazwa${numer}`).textContent = usluga.getElementsByTagName("nazwa")[0].textContent;
 
-                    for (let i = 0; i < uslugi.length && i < 3; i++)
-                    {
-                        const numer = i + 1;
-                        const usluga = uslugi[i];
+                    document.getElementById(`ilosc${numer}`).textContent = usluga.getElementsByTagName("ilosc")[0].textContent;
+                    document.getElementById(`cena${numer}`).textContent = usluga.getElementsByTagName("cena")[0].textContent;
 
-                        const nazwa = usluga.getElementsByTagName("nazwa")[0].textContent;
-                        const ilosc = usluga.getElementsByTagName("ilosc")[0].textContent;
-                        const cena = usluga.getElementsByTagName("cena")[0].textContent;
-                        const wartosc = usluga.getElementsByTagName("wartosc")[0].textContent;
-                        const kwota = usluga.getElementsByTagName("kwota")[0].textContent;
+                    const wartosc = usluga.getElementsByTagName("wartosc")[0].textContent;
+                    document.getElementById(`wartosc${numer}`).textContent = usluga.getElementsByTagName("wartosc")[0].textContent;
 
-                        document.getElementById(`nazwa${numer}`).textContent = nazwa;
-                        document.getElementById(`ilosc${numer}`).textContent = ilosc;
-                        document.getElementById(`cena${numer}`).textContent = cena;
-                        document.getElementById(`wartosc${numer}`).textContent = wartosc;
-                        document.getElementById(`kwota${numer}`).textContent = kwota;
+                    document.getElementById(`kwota${numer}`).textContent = usluga.getElementsByTagName("kwota")[0].textContent;
 
-                        sumaWartosci += parseFloat(wartosc);
+                    sumaWartosci += parseFloat(wartosc);
                     }
 
-                    document.getElementById('suma').textContent = sumaWartosci.toFixed(2);
+                document.getElementById('suma').textContent = sumaWartosci;
 
-                })
-                .catch(error =>
-                {
-                    console.error("Wystąpił błąd podczas wczytywania faktury:", error);
-                });
-        });
+            })
     </script>
 
     <p><a href="index.html">← Powrót do strony głównej</a></p>
