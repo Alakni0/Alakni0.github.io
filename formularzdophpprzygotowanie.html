@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz</title>
+
+    <style>
+        body {
+            background-color: #e1f1fa;
+            font-family: Arial, sans-serif;
+            color: #033e63;
+            text-align: center;
+        }
+
+        form {
+            background-color: #cce7f0;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            background-color: #005f8a;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color: #005f8a;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Formularz adopcji delfina</h1>
+
+<form id="formularz" action="gratuluje.html">
+
+    <label for="imie">Imie:</label><br>
+    <input type="text" id="imie" name="imie" placeholder="Wpisz odpowiedź" required><br>
+    <label for="nazwisko">Nazwisko:</label><br>
+    <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz odpowiedź" required><br><br>
+
+    <label for="haslo">Hasło:</label><br>
+    <input type="password" id="haslo" name="haslo" placeholder="Wpisz hasło" required><br><br>
+
+    <p>Czy masz 18 lat?</p>
+    <input type="checkbox" id="wiekTak" name="wiek" value="tak" required>
+    <label for="wiekTak">Tak</label><br>
+    <input type="checkbox" id="wiekNie" name="wiek" value="nie">
+    <label for="wiekNie">Nie</label><br>
+    <p></p>
+    <p></p>
+
+    <p>Data urodzenia:</p>
+    <label for="dzien">Dzień:</label><br>
+    <input type="number" id="dzien" name="dzien" min="1" max="31" step="1" required><br>
+
+    <label for="miesiac">Miesiąc:</label><br>
+    <input type="number" id="miesiac" name="miesiac" min="1" max="12" step="1" required><br>
+
+    <label for="rok">Rok:</label><br>
+    <input type="number" id="rok" name="rok" inputmode="numeric" pattern="^\d{4}$" maxlength="4" required><br>
+    <p></p>
+
+
+    <label for="miasto">Miasto:</label><br>
+    <input type="text" id="miasto" name="miasto" placeholder="Wpisz odpowiedź" required><br><br>
+    <label for="ulica">Ulica:</label><br>
+    <input type="text" id="ulica" name="ulica" placeholder="Wpisz odpowiedź" required><br><br>
+
+    <label for="wojewodztwo">Województwo:</label><br>
+    <select id="wojewodztwo" name="wojewodztwo" required>
+        <option value="">-- Wybierz --</option>
+        <option>Dolnośląskie</option>
+        <option>Kujawsko-pomorskie</option>
+        <option>Lubelskie</option>
+        <option>Lubuskie</option>
+        <option>Łódzkie</option>
+        <option>Małopolskie</option>
+        <option>Mazowieckie</option>
+        <option>Opolskie</option>
+        <option>Podkarpackie</option>
+        <option>Podlaskie</option>
+        <option>Pomorskie</option>
+        <option>Śląskie</option>
+        <option>Świętokrzyskie</option>
+        <option>Warmińsko-mazurskie</option>
+        <option>Wielkopolskie</option>
+        <option>Zachodniopomorskie</option>
+    </select><br><br>
+
+    <label for="mail">Email:</label><br>
+    <input type="text" id="mail" name="mail" placeholder="Wpisz odpowiedź" required><br><br>
+
+    <label for="telefon">Numer telefonu:</label><br>
+    <input type="text" id="telefon" name="telefon" placeholder="Wpisz odpowiedź"><br><br>
+
+    <p>Czy posiadasz prawo jazdy?</p>
+    <input type="checkbox" id="pjTak" name="prawojazdy" value="tak" required>
+    <label for="pjTak">Tak</label><br>
+    <input type="checkbox" id="pjNie" name="prawojazdy" value="nie">
+    <label for="pjNie">Nie</label>
+
+    <p>Proszę określić swoją płeć:</p>
+
+    <input type="checkbox" id="kobieta" name="kobieta" value="kobieta">
+    <label for="kobieta">Kobieta</label><br>
+    <input type="checkbox" id="mezczyzna" name="mezczyzna" value="mezczyzna">
+    <label for="mezczyzna">Mężczyzna</label><br>
+    <label for="inna">Inna:</label><br>
+    <input type="text" id="inna" name="inna" placeholder="Wpisz odpowiedź"><br><br>
+    
+    <p>Dlaczego chcesz zaadoptować delfina? Proszę napisz swoją motywację poniżej:</p>
+    <textarea id="uwagi" name="uwagi" rows="4" cols="50"
+              placeholder="Wpisz swoją odpowiedź tutaj..."></textarea><br><br>
+
+    <input type="submit" value="Submit">
+
+</form>
+
+
+<p><a href="index.html">← Powrót do strony głównej</a></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
