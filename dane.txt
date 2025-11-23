@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz dane</title>
+</head>
+<body style="background-color:#e1f1fa">
+<div>
+    <p>Imie: <?php echo  $_POST["imie"];?></p>
+    <p>Nazwisko: <?php echo  $_POST["nazwisko"];?></p>
+    <p>Hasło: Zostało przesłane (ukryte ze względów bezpieczeństwa)</p>
+
+    <p>Czy masz 18 lat?
+        <?php
+        if (isset($_POST['wiek']))
+        {
+            if ($_POST['wiek'] == 'tak')
+            {
+                echo "Tak";
+            }
+            else
+            {
+                echo "Nie możesz zaadoptować delfina, bo nie masz 18 lat.";
+            }
+        }
+        else
+        {
+            echo "Nie podano";
+        }
+        ?>
+    </p>
+
+    <p>Data urodzenia:
+        <?php
+        if (isset($_POST['dzien'], $_POST['miesiac'], $_POST['rok']) &&
+                $_POST['dzien'] !== '' && $_POST['miesiac'] !== '' && $_POST['rok'] !== '')
+        {
+
+            $dzien = $_POST['dzien'];
+            $miesiac = $_POST['miesiac'];
+            $rok = $_POST['rok'];
+
+            echo "$dzien.$miesiac.$rok";
+        }
+        else
+        {
+            echo "Nie podano";
+        }
+        ?>
+    </p>
+
+    <p>Miasto: <?php echo $_POST["miasto"]; ?></p>
+    <p>Ulica: <?php echo  $_POST["ulica"];?></p>
+    <p>Województwo: <?php echo $_POST["wojewodztwo"]; ?></p>
+
+    <p>E-mail: <?php echo $_POST["mail"]; ?> </p>
+
+    <p>Numer telefonu:
+        <?php
+        $telefon = $_POST["telefon"];
+        if (!empty($telefon)) {
+            if (!ctype_digit($telefon) || strlen($telefon) != 9) {
+                echo "źle podany numer telefonu";
+            } else {
+                echo $telefon;
+            }
+        }
+        else
+        {
+            echo "Brak";
+        }
+        ?>
+    </p>
+
+    <p>Płeć:
+        <?php
+        if (isset($_POST['plec']))
+        {
+            if ($_POST['plec'] == "kobieta")
+            {
+                echo "Kobieta";
+            }
+            elseif ($_POST['plec'] == "mezczyzna")
+            {
+                echo "Mężczyzna";
+            }
+            else {
+                echo $_POST['plec'];
+            }
+        }
+        elseif (!empty($_POST['inna']))
+        {
+            echo $_POST['inna'];
+        }
+        else {
+            echo "Nie wybrano płci";
+        }
+        ?>
+    </p>
+
+    <p>Uwagi:
+        <?php
+        $tekst = trim($_POST["uwagi"]);
+        if ($tekst == "" || $tekst == "Brak uwag") {
+            echo "brak";
+        } else {
+            echo $tekst;
+        }
+        ?>
+    </p>
+
+    <h1><a href="wyswietlenie.php">powrót</a></h1>
+</div>
+</body>
+</html>
