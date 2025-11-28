@@ -1,1 +1,116 @@
-jeszcze nic
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Baza</title>
+</head>
+<body style="background-color:#e1f1fa">
+
+<?php
+    $connection = @mysqli_connect('localhost:3306', 'root', '','baza');
+    if(!$connection){
+        die("Błąd połączenia z bazą danych!");
+    }
+
+    if(isset($_POST["dodaj"]))
+    {
+        $imie = $_POST["imie"];
+        $nazwisko = $_POST["nazwisko"];
+        $wiek = $_POST["wiek"];
+        $sql = "INSERT INTO dane (imie, nazwisko, wiek) VALUES (?, ?, ?)"; //Prepared Statements
+        $stmt = mysqli_prepare($connection, $sql);
+        mysqli_stmt_bind_param($stmt, "ssi", $imie, $nazwisko, $wiek);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("Location: baza.php");
+        exit();
+    }
+
+    if(isset($_POST["kasuj"]))
+    {
+        $id = $_POST["id"];
+        $sql = "DELETE FROM dane WHERE id = ?";
+        $stmt = mysqli_prepare($connection, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("Location: baza.php");
+        exit();
+    }
+
+    if(isset($_POST["edytuj"]))
+    {
+        $id_do_edycji = $_POST["id"];
+        session_start();
+        $_SESSION['edytowany_id'] = $id_do_edycji;
+
+    }
+
+    if(isset($_POST["zapisz"]))
+    {
+        session_start();
+        $id = $_POST["id"];
+        $imie = $_POST["imie"];
+        $nazwisko = $_POST["nazwisko"];
+        $wiek = $_POST["wiek"];
+
+        $sql = "UPDATE dane SET imie = ?, nazwisko = ?, wiek = ? WHERE id = ?";
+        $stmt = mysqli_prepare($connection, $sql);
+        mysqli_stmt_bind_param($stmt, "ssii", $imie, $nazwisko, $wiek, $id);
+
+        if(mysqli_stmt_execute($stmt))
+        {
+            unset($_SESSION['edytowany_id']);
+            header("Location: baza.php");
+            exit();
+        }
+        else
+        {
+            echo "Błąd podczas edycji: " . mysqli_error($connection);
+        }
+        mysqli_stmt_close($stmt);
+    }
+
+
+    $sql = "SELECT * FROM dane";
+    $wynik = mysqli_query($connection, $sql);
+
+    while($linia=mysqli_fetch_array($wynik))
+    {
+        echo "<hr>";
+
+        $czy_edytowany = isset($_SESSION['edytowany_id']) && $_SESSION['edytowany_id'] == $linia['id'];
+
+        if($czy_edytowany)
+        {
+            echo "<form action='baza.php' method='post'>";
+            echo "<input type='hidden' name='id' value='".$linia['id']."'>";
+            echo "<input type='text' name='imie' value='".$linia['imie']."'>";
+            echo "<input type='text' name='nazwisko' value='".$linia['nazwisko']."'>";
+            echo "<input type='number' name='wiek' value='".$linia['wiek']."'>";
+            echo "<input type='submit' name='zapisz' value='Zapisz'>";
+            echo "</form>";
+        }
+        else
+        {
+            echo "<form action='baza.php' method='post'>";
+            echo "<input type='hidden' name='id' value='" . $linia['id'] . "'>";
+            echo $linia['id'] . " " . $linia['imie'] . " " . $linia['nazwisko'] . " " . $linia['wiek'] . " ";
+            echo "<input type='submit' name='kasuj' value='Kasuj'>";
+            echo "<input type='submit' name='edytuj' value='Edytuj'>";
+            echo("</form>");
+        }
+    }
+
+    mysqli_close($connection);
+?>
+
+<form action=baza.php method="POST">
+    <input type="text" name="imie">
+    <input type ="text" name="nazwisko">
+    <input type="text" name="wiek">
+    <input type="submit" name="dodaj" value="Dodaj">
+</form>
+
+</body>
+</html>
