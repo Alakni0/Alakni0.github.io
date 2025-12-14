@@ -1,0 +1,23 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["user"])) {
+    header("Location: logowanie.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Panel użytkownika</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Witaj, <?php echo $_SESSION["user"]; ?>!</h2>
+    <p>Jesteś zalogowana/y.</p>a
+    <a href="logout.php"><button>Wyloguj</button></a>
+</div>
+</body>
+</html>

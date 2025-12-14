@@ -1,0 +1,7 @@
+<?php
+$connection = mysqli_connect("localhost", "root", "", "bazalog");
+
+if (!$connection) {
+    die("Błąd połączenia z bazą danych");
+}
+?>

@@ -8,12 +8,54 @@
         body {
             background-color: #e1f1fa;
             font-family: Arial, sans-serif;
+            color: #033e63;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
         }
 
-        a {
+        ul {
+            background-color: #cce7f0;
             display: inline-block;
-            color: #000000;
+            padding: 20px 100px;
+            border-radius: 15px;
+            list-style: none;
+            margin-bottom: 15px;
         }
+
+        li {
+            margin: 5px 0;
+        }
+
+        li a:first-child {
+            display: inline-block;
+            color: #005f8a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        li a:first-child:hover {
+            text-decoration: underline;
+        }
+
+        li a[download] {
+            display: inline-block;
+            color: #005f8a;
+            text-decoration: none;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+
+        li a[download]:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
     </style>
 
 </head>
@@ -39,6 +81,9 @@
 <ul>
     <li><a href ="faktura.html">Faktura</a></li>
 </ul>
+<p></p>
+<p>Projekty robione lokalnie na komputerze:</p>
+<p></p>
 <p>projekt 6:</p>
 <ul>
     <li>
@@ -63,7 +108,28 @@
         <a href="logowanie.txt">Logowanie</a>
         <a href="logowanie.txt" download style="margin-left:10px;">(pobierz)</a>
     </li>
+    <li>
+        <a href="rejestracja.txt">Rejestracja</a>
+        <a href="rejestracja.txt" download style="margin-left:10px;">(pobierz)</a>
+    </li>
+    <li>
+        <a href="db.txt">Db</a>
+        <a href="db.txt" download style="margin-left:10px;">(pobierz)</a>
+    </li>
+    <li>
+        <a href="dashboard.txt">Dashboard</a>
+        <a href="dashboard.txt" download style="margin-left:10px;">(pobierz)</a>
+    </li>
+    <li>
+        <a href="logout.txt">Logout</a>
+        <a href="logout.txt" download style="margin-left:10px;">(pobierz)</a>
+    </li>
+    <li>
+        <a href="style.txt">Style</a>
+        <a href="style.txt" download style="margin-left:10px;">(pobierz)</a>
+    </li>
 </ul>
+
 
 </html>
 
