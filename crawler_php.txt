@@ -1,0 +1,48 @@
+<?php
+header('Content-Type: application/json; charset=UTF-8');
+
+$url = "https://pl.wikipedia.org/wiki/Delfin";
+
+$options = [
+    "http" => [
+        "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\r\n"
+    ]
+];
+$context = stream_context_create($options);
+
+$html = file_get_contents($url, false, $context);
+
+if ($html === false) {
+    echo json_encode([
+        'tresci' => [
+            'tytul' => '',
+            'akapit' => 'Nie udało się pobrać strony.'
+        ]
+    ]);
+    exit;
+}
+
+$dom = new DOMDocument();
+@$dom->loadHTML($html);
+
+$xpath = new DOMXPath($dom);
+
+$tytulNode = $xpath->query('//h1[@id="firstHeading"]')->item(0);
+$tytul = $tytulNode ? trim($tytulNode->textContent) : '';
+
+$nodes = $xpath->query('//div[@id="mw-content-text"]//p[position()<=5]');
+$akapit = '';
+foreach ($nodes as $node) {
+    $tekst = trim($node->textContent);
+    if ($tekst !== '') {
+        $akapit .= $tekst . "\n\n";
+    }
+}
+
+
+echo json_encode([
+    'tresci' => [
+        'tytul' => $tytul,
+        'akapit' => $akapit
+    ]
+], JSON_UNESCAPED_UNICODE);

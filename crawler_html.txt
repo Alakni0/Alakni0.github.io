@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crawler – Delfiny</title>
+    <style>
+        body {
+            background-color: #e1f1fa;
+            font-family: Arial, sans-serif;
+            color: #033e63;
+            text-align: center;
+        }
+
+        button {
+            background-color: #005f8a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 30%;
+        }
+
+        button:hover {
+            background-color: #004766;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Crawler – artykuł z Wikipedii</h1>
+<div class = "container">
+    <h2 id = "tytul"></h2>
+    <p id = "akapit"></p>
+</div>
+<button onclick="pobierzDane()">Pobierz dane</button>
+
+<script>
+    function pobierzDane() {
+        console.log("Klik działa");
+        fetch('crawler.php')
+            .then(response => response.json())
+            .then(data => {
+                const tresci = data.tresci;
+                document.getElementById('tytul').innerText = tresci.tytul;
+                document.getElementById('akapit').innerText = tresci.akapit;
+
+                document.querySelector('button').style.display = 'none';
+            })
+            .catch(error => {
+                console.error("Błąd:", error);
+            });
+    }
+</script>
+</body>
+</html>
