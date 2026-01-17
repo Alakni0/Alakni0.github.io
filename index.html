@@ -9,25 +9,37 @@
             background-color: #e1f1fa;
             font-family: Arial, sans-serif;
             color: #033e63;
-            text-align: center;
             margin: 0;
             padding: 20px;
         }
 
-        ul {
-            background-color: #cce7f0;
-            display: inline-block;
-            padding: 20px 100px;
-            border-radius: 15px;
-            list-style: none;
-            margin-bottom: 15px;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .file-type {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #033e63;
-            font-size: 14px;
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #cce7f0;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            background-color: #cce7f0;
+            padding: 20px 60px;
+            border-radius: 15px;
+            list-style: none;
+            margin: 15px auto;
         }
 
         li {
@@ -39,6 +51,7 @@
             color: #005f8a;
             text-decoration: none;
             font-weight: bold;
+            font-size: 15px;
         }
 
         li a:first-child:hover {
@@ -57,104 +70,116 @@
             text-decoration: underline;
         }
 
-        p {
-            font-size: 18px;
+        .file-type {
             font-weight: bold;
-            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #033e63;
+            font-size: 14px;
         }
-
     </style>
 
 </head>
 
-<body>Alicja Knigawka:</body>
-<p>projekt 2:</p>
-<ul>
-    <li><a href="kolumny.html">Kolumny</a></li>
-    <li><a href="obrazki.html">Obrazki</a></li>
-    <li><a href="formularz.html">Formularz</a></li>
-</ul>
-<p>projekt 3:</p>
-<ul>
-    <li><a href="kolumnycss.html">Kolumny</a></li>
-    <li><a href="obrazkicss.html">Obrazki</a></li>
-    <li><a href="formularzcss.html">Formularz</a></li>
-</ul>
-<p>projekt 4:</p>
-<ul>
-    <li><a href ="kalkulator.html">Kalkulator</a></li>
-</ul>
-<p>projekt 5:</p>
-<ul>
-    <li><a href ="faktura.html">Faktura</a></li>
-</ul>
-<p></p>
-<p>Projekty wyświetlane lokalnie na komputerze:</p>
-<p></p>
-<p>projekt 6:</p>
-<ul>
-    <li class="file-type">Pliki PHP</li>
-    <li>
-        <a href ="wyswietlenie.txt">Formularz</a>
-        <a href="wyswietlenie.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-    <li>
-        <a href="dane.txt">Wyświetlenie wyników formularza</a>
-        <a href="dane.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-</ul>
-<p>projekt 7:</p>
-<ul>
-    <li class="file-type">Plik PHP</li>
-    <li>
-        <a href ="baza.txt">Baza danych</a>
-        <a href="baza.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-</ul>
-<p>projekt 8:</p>
-<ul>
-    <li class="file-type">Pliki PHP</li>
-    <li>
-        <a href="logowanie.txt">Logowanie</a>
-        <a href="logowanie.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-    <li>
-        <a href="rejestracja.txt">Rejestracja</a>
-        <a href="rejestracja.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-    <li>
-        <a href="db.txt">Db</a>
-        <a href="db.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-    <li>
-        <a href="dashboard.txt">Dashboard</a>
-        <a href="dashboard.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-    <li>
-        <a href="logout.txt">Logout</a>
-        <a href="logout.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-    <li class="file-type">Plik CSS</li>
-    <li>
-        <a href="style.txt">Style</a>
-        <a href="style.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-</ul>
+<body>
+<div class="container">
 
-<p>Projekt 9:</p>
-<ul>
-    <li class="file-type">Plik HTML</li>
-    <li>
-        <a href="crawler_html.txt">Crawler</a>
-        <a href="crawler_html.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-    <li class="file-type">Plik PHP</li>
-    <li>
-        <a href="crawler_php.txt">Crawler</a>
-        <a href="crawler_php.txt" download style="margin-left:10px;">(pobierz)</a>
-    </li>
-</ul>
+    <h1>Alicja Knigawka</h1>
 
+    <h2>Projekt 2</h2>
+    <ul>
+        <li><a href="kolumny.html">Kolumny</a></li>
+        <li><a href="obrazki.html">Obrazki</a></li>
+        <li><a href="formularz.html">Formularz</a></li>
+    </ul>
+
+    <h2>Projekt 3</h2>
+    <ul>
+        <li><a href="kolumnycss.html">Kolumny</a></li>
+        <li><a href="obrazkicss.html">Obrazki</a></li>
+        <li><a href="formularzcss.html">Formularz</a></li>
+    </ul>
+
+    <h2>Projekt 4</h2>
+    <ul>
+        <li><a href="kalkulator.html">Kalkulator</a></li>
+    </ul>
+
+    <h2>Projekt 5</h2>
+    <ul>
+        <li><a href="faktura.html">Faktura</a></li>
+    </ul>
+
+    <h2>Projekty wyświetlane lokalnie</h2>
+
+    <h2>Projekt 6</h2>
+    <ul>
+        <li class="file-type">Pliki PHP</li>
+        <li>
+            <a href="wyswietlenie.txt">Formularz</a>
+            <a href="wyswietlenie.txt" download>(pobierz)</a>
+        </li>
+        <li>
+            <a href="dane.txt">Wyświetlenie wyników formularza</a>
+            <a href="dane.txt" download>(pobierz)</a>
+        </li>
+    </ul>
+
+    <h2>Projekt 7</h2>
+    <ul>
+        <li class="file-type">Plik PHP</li>
+        <li>
+            <a href="baza.txt">Baza danych</a>
+            <a href="baza.txt" download>(pobierz)</a>
+        </li>
+    </ul>
+
+    <h2>Projekt 8</h2>
+    <ul>
+        <li class="file-type">Pliki PHP</li>
+        <li>
+            <a href="logowanie.txt">Logowanie</a>
+            <a href="logowanie.txt" download>(pobierz)</a>
+        </li>
+        <li>
+            <a href="rejestracja.txt">Rejestracja</a>
+            <a href="rejestracja.txt" download>(pobierz)</a>
+        </li>
+        <li>
+            <a href="db.txt">Db</a>
+            <a href="db.txt" download>(pobierz)</a>
+        </li>
+        <li>
+            <a href="dashboard.txt">Dashboard</a>
+            <a href="dashboard.txt" download>(pobierz)</a>
+        </li>
+        <li>
+            <a href="logout.txt">Logout</a>
+            <a href="logout.txt" download>(pobierz)</a>
+        </li>
+        <li style="height: 5px;"></li>
+        <li class="file-type">Plik CSS</li>
+        <li>
+            <a href="style.txt">Style</a>
+            <a href="style.txt" download>(pobierz)</a>
+        </li>
+    </ul>
+
+    <h2>Projekt 9</h2>
+    <ul>
+        <li class="file-type">Plik HTML</li>
+        <li>
+            <a href="crawler_html.txt">Crawler</a>
+            <a href="crawler_html.txt" download>(pobierz)</a>
+        </li>
+        <li style="height: 5px;"></li>
+        <li class="file-type">Plik PHP</li>
+        <li>
+            <a href="crawler_php.txt">Crawler</a>
+            <a href="crawler_php.txt" download>(pobierz)</a>
+        </li>
+    </ul>
+</div>
+</body>
 </html>
 
 
