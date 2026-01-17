@@ -1,1 +1,1 @@
-Coursework  for the Computer Architecture subject
+Coursework for the Computer Architecture
